@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 const BreakingNews = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center mt-6">
       <button className="btn btn-secondary">Breaking News</button>
       <div>
         <Marquee speed={150}>
