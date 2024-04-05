@@ -51,8 +51,13 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end flex gap-4">
-          <img className="w-12 h-12" src={userLogo} />
-          <Link className="btn">LogIn</Link>
+          <Link to={"/register"}>
+            <img className="w-12 h-12" src={userLogo} />
+          </Link>
+
+          <Link to={"/login"} className="btn">
+            LogIn
+          </Link>
         </div>
       </div>
     </div>
