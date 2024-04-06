@@ -8,6 +8,7 @@ import "./index.css";
 import About from "./Layouts/About";
 import Career from "./Layouts/Career";
 import Home from "./Layouts/Home";
+import AuthProviders from "./Providers/AuthProviders";
 import Root from "./routes/Root";
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("news.json"),
       },
       {
         path: "/login",
@@ -42,6 +44,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+    </AuthProviders>
   </React.StrictMode>
 );

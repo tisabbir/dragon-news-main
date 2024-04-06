@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
 import Navbar from "../pages/shared/Navbar";
-
 const Login = () => {
+  const { logIn } = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
     // const email = e.target.email.value;
@@ -10,8 +13,15 @@ const Login = () => {
 
     // alternative
     const form = new FormData(e.target);
-    console.log(form.get("email"));
-    console.log(form.get("password"));
+    const email = form.get("email");
+    const password = form.get("password");
+    logIn(email, password)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
