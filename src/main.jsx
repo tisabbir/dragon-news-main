@@ -3,12 +3,14 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./Components/Error";
 import Login from "./Components/Login";
+import News from "./Components/News";
 import Register from "./Components/Register";
 import "./index.css";
 import About from "./Layouts/About";
 import Career from "./Layouts/Career";
 import Home from "./Layouts/Home";
 import AuthProviders from "./Providers/AuthProviders";
+import PrivateRoute from "./routes/PrivateRoute";
 import Root from "./routes/Root";
 
 const router = createBrowserRouter([
@@ -20,7 +22,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("news.json"),
+        loader: () => fetch("/news.json"),
+      },
+      {
+        path: "/news/:id",
+        element: (
+          <PrivateRoute>
+            <News />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
