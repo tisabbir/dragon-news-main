@@ -5,6 +5,7 @@ import LeftSideNav from "../pages/shared/LeftSideNav";
 import Navbar from "../pages/shared/Navbar";
 import RightSideNav from "../pages/shared/RightSideNav";
 import BreakingNews from "./BreakingNews";
+import Footer from "../Components/Footer";
 
 const Home = () => {
   const news = useLoaderData();
@@ -31,6 +32,7 @@ const Home = () => {
           <RightSideNav />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
